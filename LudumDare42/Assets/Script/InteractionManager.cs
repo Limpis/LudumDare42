@@ -10,6 +10,11 @@ public class InteractionManager : MonoBehaviour {
     private ItemSlot activeItemSlot;
     private GameObject itemInTransfer;
 
+    //Mouse cursor variables
+    public Texture2D cursorTexture;
+    public CursorMode cursorMode = CursorMode.Auto;
+    public Vector2 hotSpot = Vector2.zero;
+
     public void ItemSlotButtonClick(ItemSlot itemSlot)
     {
         Debug.Log("Implemented button clicked");
@@ -20,6 +25,7 @@ public class InteractionManager : MonoBehaviour {
             {
                 //No item transfer is active - initiate a new one.
                 activeItemTransfer = true;
+                Cursor.SetCursor(cursorTexture, hotSpot, cursorMode);
                 activeItemSlot = itemSlot;
                 itemInTransfer = itemSlot.GetItem();
                 itemSlot.SpriteFade();
@@ -40,11 +46,13 @@ public class InteractionManager : MonoBehaviour {
                 activeItemSlot.DropItem();
                 activeItemSlot.UpdateItemImage();
                 activeItemTransfer = false;
+                Cursor.SetCursor(null, Vector2.zero, cursorMode);
             }
             else if(itemSlot == activeItemSlot)
             {
                 Debug.Log("Same itemslot clicked, now deactivating transfer");
                 activeItemTransfer = false;
+                Cursor.SetCursor(null, Vector2.zero, cursorMode);
                 activeItemSlot.UpdateItemImage();
             }
             else

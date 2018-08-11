@@ -5,10 +5,12 @@ using UnityEngine.UI;
 
 public class ItemSlot : MonoBehaviour {
 
-    //TODO - get image from held item and give it tom button image on startup and item transfer.
+   //TODO - Subtract money for transaction between seller and player item slots.
+   //TODO - Forbid items to be taken from player item slots and put in sellers item slots.
 
     public GameObject heldItem;
     public Image buttonItemSprite;
+    public Text priceLable;
 
     private void Start()
     {
@@ -24,12 +26,27 @@ public class ItemSlot : MonoBehaviour {
     {
         heldItem = item;
         UpdateItemImage();
+
+        if (priceLable != null)
+        {
+            if (priceLable.enabled == false)
+            {
+                priceLable.enabled = true;
+            }
+        }
+
+        UpdatePriceLable();
     }
 
     public void DropItem()
     {
         heldItem = null;
         UpdateItemImage();
+
+        if (priceLable != null)
+        {
+            priceLable.enabled = false;
+        }
     }
 
     public void SpriteFade()
@@ -55,6 +72,14 @@ public class ItemSlot : MonoBehaviour {
             //Get image from held item and send to button sprite.
             buttonItemSprite.sprite = heldItem.GetComponent<Image>().sprite;
             buttonItemSprite.enabled = true;
+        }
+    }
+
+    public void UpdatePriceLable()
+    {
+        if(priceLable != null)
+        {
+            priceLable.text = heldItem.GetComponent<Item>().GetValue().ToString();
         }
     }
 }

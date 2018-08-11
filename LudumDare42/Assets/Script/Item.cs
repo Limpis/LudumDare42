@@ -7,4 +7,8 @@ public class Item : MonoBehaviour {
     public int value;
     public bool foodItem;
 
+    public int GetValue()
+    {
+        return value;
+    }
 }

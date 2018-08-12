@@ -20,6 +20,8 @@ public class InteractionManager : MonoBehaviour {
     public Text helpTextLable;
     private bool messageShowing = false;
 
+    public int camelValue = 100;
+
     private void Awake()
     {
         playerMoney = GetComponentInChildren<PlayerMoney>();
@@ -117,6 +119,20 @@ public class InteractionManager : MonoBehaviour {
                 Debug.Log("An item already exists in this slot");
                 DisplayHelpTextMessage("An item already exists in this slot.");
             }
+        }
+    }
+
+    public void SellCamelButtonClick(GameObject camel)
+    {
+        if (camel.GetComponentInChildren<ItemSlot>().heldItem != null)
+        {
+            DisplayHelpTextMessage("Cannot sell a camel with a filled inventory");
+        }
+        else
+        {
+            camel.SetActive(false);
+            playerMoney.AddPlayerMoney(camelValue);
+            DisplayHelpTextMessage("Camel sold for " + camelValue + " coins.");
         }
     }
 

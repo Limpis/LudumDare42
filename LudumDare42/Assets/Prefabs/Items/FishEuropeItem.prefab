@@ -42,6 +42,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   value: 50
   foodItem: 1
+  itemName: Fish
 --- !u!114 &114571655665125880
 MonoBehaviour:
   m_ObjectHideFlags: 1

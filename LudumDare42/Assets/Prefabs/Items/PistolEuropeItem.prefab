@@ -69,6 +69,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   value: 75
   foodItem: 0
+  itemName: Guns
 --- !u!222 &222786285735741378
 CanvasRenderer:
   m_ObjectHideFlags: 1

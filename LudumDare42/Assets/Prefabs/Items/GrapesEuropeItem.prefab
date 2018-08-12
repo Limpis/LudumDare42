@@ -42,6 +42,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   value: 225
   foodItem: 1
+  itemName: Grapes
 --- !u!114 &114952455354638864
 MonoBehaviour:
   m_ObjectHideFlags: 1

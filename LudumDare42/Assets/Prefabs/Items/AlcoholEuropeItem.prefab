@@ -42,6 +42,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   value: 100
   foodItem: 0
+  itemName: Alcohol
 --- !u!114 &114970181791494242
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerMoney : MonoBehaviour {
 
-    public int playerMoney = 300;
+    public int money = 300;
     public Text playerMoneyLable;
 
     private void Start()
@@ -15,18 +15,18 @@ public class PlayerMoney : MonoBehaviour {
 
     public void UpdatePlayerMoney()
     {
-        playerMoneyLable.text = playerMoney.ToString();
+        playerMoneyLable.text = money.ToString();
     }
 
     public void RemovePlayerMoney(int cost)
     {
-        playerMoney -= cost;
+        money -= cost;
         UpdatePlayerMoney();
     }
 
     public void AddPlayerMoney(int pay)
     {
-        playerMoney += pay;
+        money += pay;
         UpdatePlayerMoney();
     }
 }

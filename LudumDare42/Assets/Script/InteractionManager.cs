@@ -67,7 +67,7 @@ public class InteractionManager : MonoBehaviour {
                     {
                         int cost = activeItemSlot.heldItem.GetComponent<Item>().GetValue();
                         //Check if affordable
-                        if (playerMoney.money >= cost)
+                        if (playerMoney.GetMoney() >= cost)
                         {
                             playerMoney.RemovePlayerMoney(cost);
 
@@ -131,8 +131,8 @@ public class InteractionManager : MonoBehaviour {
         else
         {
             camel.SetActive(false);
-            playerMoney.AddPlayerMoney(camelValue);
-            DisplayHelpTextMessage("Camel sold for " + camelValue + " coins.");
+            playerMoney.AddExtraMoney(camelValue);
+            DisplayHelpTextMessage("Camel sold for " + camelValue + " extra coins.");
         }
     }
 

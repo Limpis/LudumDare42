@@ -22,6 +22,9 @@ public class InteractionManager : MonoBehaviour {
 
     public int camelValue = 100;
 
+    private ShoppingTransitionManager transitionManager;
+    private int camelCount = 4;
+
     private void Awake()
     {
         playerMoney = GetComponentInChildren<PlayerMoney>();
@@ -74,6 +77,12 @@ public class InteractionManager : MonoBehaviour {
                             TransferItem(itemSlot);
                             DisplayHelpTextMessage("You bought " + itemSlot.heldItem.GetComponent<Item>().GetName());
 
+                            if (transitionManager == null)
+                            {
+                                transitionManager = GetComponentInParent<ShoppingTransitionManager>();
+                                transitionManager.SetContinueButtonVisible();
+                            }
+
                         }
                         else
                         {
@@ -124,15 +133,23 @@ public class InteractionManager : MonoBehaviour {
 
     public void SellCamelButtonClick(GameObject camel)
     {
-        if (camel.GetComponentInChildren<ItemSlot>().heldItem != null)
+        if (camelCount > 1)
         {
-            DisplayHelpTextMessage("Cannot sell a camel with a filled inventory");
+            if (camel.GetComponentInChildren<ItemSlot>().heldItem != null)
+            {
+                DisplayHelpTextMessage("Cannot sell a camel with a filled inventory");
+            }
+            else
+            {
+                camel.SetActive(false);
+                playerMoney.AddExtraMoney(camelValue);
+                DisplayHelpTextMessage("Camel sold for " + camelValue + " extra coins.");
+                camelCount--;
+            }
         }
         else
         {
-            camel.SetActive(false);
-            playerMoney.AddExtraMoney(camelValue);
-            DisplayHelpTextMessage("Camel sold for " + camelValue + " extra coins.");
+            DisplayHelpTextMessage("Cannot sell your last camel.");
         }
     }
 

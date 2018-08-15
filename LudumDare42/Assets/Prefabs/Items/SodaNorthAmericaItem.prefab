@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 114815260688194170}
   - component: {fileID: 114386973474918898}
   m_Layer: 0
-  m_Name: DrinkNorthAmericaItem
+  m_Name: SodaNorthAmericaItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41,8 +41,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 75
-  foodItem: 1
-  itemName: Soft Drinks
+  isFoodItem: 1
+  itemName: Soda
+  itemCombinations:
+  - {fileID: 1216679619922842, guid: 4b4ece32c1891654e8521502115a48ef, type: 2}
+  craftingResult:
+  - {fileID: 1082757975838818, guid: 31f826bd9f251664a94c8d4aa7b46326, type: 2}
 --- !u!114 &114815260688194170
 MonoBehaviour:
   m_ObjectHideFlags: 1

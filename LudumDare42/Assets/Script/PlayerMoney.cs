@@ -67,4 +67,9 @@ public class PlayerMoney : MonoBehaviour {
         extraMoney += pay;
         UpdatePlayerMoney();
     }
+
+     public void RemoveExtraMoney()
+    {
+        extraMoney = 0;
+    }
 }

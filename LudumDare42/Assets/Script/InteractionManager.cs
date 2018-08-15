@@ -22,7 +22,7 @@ public class InteractionManager : MonoBehaviour {
 
     public int camelValue = 100;
 
-    private ShoppingTransitionManager transitionManager;
+    public ShoppingTransitionManager transitionManager;
     private int camelCount = 4;
 
     private void Awake()
@@ -77,9 +77,8 @@ public class InteractionManager : MonoBehaviour {
                             TransferItem(itemSlot);
                             DisplayHelpTextMessage("You bought " + itemSlot.heldItem.GetComponent<Item>().GetName());
 
-                            if (transitionManager == null)
+                            if (transitionManager != null)
                             {
-                                transitionManager = GetComponentInParent<ShoppingTransitionManager>();
                                 transitionManager.SetContinueButtonVisible();
                             }
 
@@ -92,7 +91,14 @@ public class InteractionManager : MonoBehaviour {
                     }
                     else
                     {
-                        TransferItem(itemSlot);
+                        if (itemSlot.isFridge == false && activeItemSlot.heldItem.GetComponent<Item>().isFoodItem == true)
+                        {
+                            Debug.Log("NONONO!");
+                        }
+                        else
+                        {
+                            TransferItem(itemSlot);
+                        }
                     }
                 }
                 else if(itemSlot.CompareTag("SellerItemSlot"))

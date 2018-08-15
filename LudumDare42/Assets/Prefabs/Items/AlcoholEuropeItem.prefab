@@ -43,6 +43,10 @@ MonoBehaviour:
   value: 100
   foodItem: 0
   itemName: Alcohol
+  itemCombinations:
+  - {fileID: 1755029529923936, guid: 07b1f9b7a96303647a1947e205ce7f84, type: 2}
+  craftingResult:
+  - {fileID: 1082757975838818, guid: 31f826bd9f251664a94c8d4aa7b46326, type: 2}
 --- !u!114 &114970181791494242
 MonoBehaviour:
   m_ObjectHideFlags: 1

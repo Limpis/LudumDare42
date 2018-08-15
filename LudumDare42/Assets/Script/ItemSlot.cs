@@ -11,6 +11,7 @@ public class ItemSlot : MonoBehaviour {
     public GameObject heldItem;
     public Image buttonItemSprite;
     public Text priceLable;
+    public bool isFridge = false;
 
     private void Start()
     {

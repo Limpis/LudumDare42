@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ShoppingTransitionManager : MonoBehaviour {
 
@@ -14,7 +15,7 @@ public class ShoppingTransitionManager : MonoBehaviour {
 
     public void ShoppingContinueButtonClick()
     {
-        Debug.Log("Implement scene transition here");
+        SceneManager.LoadScene("Inventory&Marketplace");
     }
 
     public void SetContinueButtonVisible()

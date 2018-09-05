@@ -4,18 +4,20 @@ using UnityEngine;
 
 public class InitializeGame : MonoBehaviour
 {
-    public GameObject WorldMapPanel;
-    public GameObject ShoppingPanel;
+    public GameObject worldMapPanel;
+    public GameObject shoppingPanel;
     public GameObject playerPanel;
-    public GameObject PlayerInventoryPanel;
-    public GameObject StoragePanel;
+    public GameObject playerInventoryPanel;
+    public GameObject storagePanel;
+    public GameObject marketplacePanel;
 
     private void Start()
     {
-        WorldMapPanel.SetActive(true);
-        ShoppingPanel.SetActive(false);
+        worldMapPanel.SetActive(true);
+        shoppingPanel.SetActive(false);
         playerPanel.SetActive(true);
-        PlayerInventoryPanel.SetActive(false);
-        StoragePanel.SetActive(false);
+        playerInventoryPanel.SetActive(false);
+        storagePanel.SetActive(false);
+        marketplacePanel.SetActive(false);
     }
 }

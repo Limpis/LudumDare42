@@ -7,6 +7,7 @@ public class StorageTransitionManager : MonoBehaviour {
 
     public Button storageContinueButton;
     public ItemSlot[] playerInventorySlots;
+    public GameObject marketplacePanel;
 
     private bool itemSlotsEmpty = false;
 
@@ -28,5 +29,15 @@ public class StorageTransitionManager : MonoBehaviour {
             }
             storageContinueButton.gameObject.SetActive(true);
         }
+    }
+
+    public void StorageContinueButtonClick()
+    {
+        for (int i = 0; i < playerInventorySlots.Length; i++)
+        {
+            playerInventorySlots[i].transform.parent.gameObject.SetActive(false);
+        }
+
+        marketplacePanel.SetActive(true);
     }
 }

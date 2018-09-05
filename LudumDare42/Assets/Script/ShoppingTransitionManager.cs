@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class ShoppingTransitionManager : MonoBehaviour {
 
     public Button continueButton;
+    public GameObject StoragePanel;
 
     private void Awake()
     {
@@ -15,7 +16,8 @@ public class ShoppingTransitionManager : MonoBehaviour {
 
     public void ShoppingContinueButtonClick()
     {
-        SceneManager.LoadScene("Inventory&Marketplace");
+        StoragePanel.SetActive(true);
+        gameObject.SetActive(false);
     }
 
     public void SetContinueButtonVisible()

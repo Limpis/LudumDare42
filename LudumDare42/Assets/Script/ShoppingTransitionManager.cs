@@ -8,6 +8,8 @@ public class ShoppingTransitionManager : MonoBehaviour {
 
     public Button continueButton;
     public GameObject StoragePanel;
+    public PlayerMoney playerMoney;
+    public GameObject[] sellCamelButtons;
 
     private void Awake()
     {
@@ -16,7 +18,13 @@ public class ShoppingTransitionManager : MonoBehaviour {
 
     public void ShoppingContinueButtonClick()
     {
+        playerMoney.RemoveExtraMoney();
         StoragePanel.SetActive(true);
+        for (int i = 0; i < sellCamelButtons.Length; i++)
+        {
+            sellCamelButtons[i].SetActive(false);
+        }
+
         gameObject.SetActive(false);
     }
 

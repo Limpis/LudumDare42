@@ -18,7 +18,7 @@ public class StorageTransitionManager : MonoBehaviour {
 
     private void Update()
     {
-        if (storageContinueButton.gameObject.activeSelf == false)
+        if (marketplacePanel.gameObject.activeSelf != true && storageContinueButton.gameObject.activeSelf == false)
         {
             for (int i = 0; i < playerInventorySlots.Length; i++)
             {
@@ -39,5 +39,16 @@ public class StorageTransitionManager : MonoBehaviour {
         }
 
         marketplacePanel.SetActive(true);
+
+        if (!marketplacePanel.GetComponent<Marketplace>().isInitialized)
+        {
+            marketplacePanel.GetComponent<Marketplace>().RandomizeItems();
+        }
+        else
+        {
+            marketplacePanel.GetComponent<Marketplace>().FillEmptySlots();
+        }
+
+        storageContinueButton.gameObject.SetActive(false);
     }
 }

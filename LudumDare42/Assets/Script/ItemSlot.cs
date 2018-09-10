@@ -5,9 +5,6 @@ using UnityEngine.UI;
 
 public class ItemSlot : MonoBehaviour {
 
-   //TODO - Subtract money for transaction between seller and player item slots.
-   //TODO - Forbid items to be taken from player item slots and put in sellers item slots.
-
     public GameObject heldItem;
     public Image buttonItemSprite;
     public Text priceLable;
@@ -80,7 +77,8 @@ public class ItemSlot : MonoBehaviour {
     {
         if(priceLable != null)
         {
-            priceLable.text = heldItem.GetComponent<Item>().GetValue().ToString();
+            int price = heldItem.GetComponent<Item>().GetPrice();
+            priceLable.text = price.ToString();
         }
     }
 }

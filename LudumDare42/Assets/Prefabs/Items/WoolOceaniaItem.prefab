@@ -28,7 +28,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &114138573067748096
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -68,8 +68,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 40
-  foodItem: 0
+  price: 32
+  isFoodItem: 0
   itemName: Wool
+  itemCombinations: []
+  craftingResult: []
 --- !u!222 &222761332931368922
 CanvasRenderer:
   m_ObjectHideFlags: 1

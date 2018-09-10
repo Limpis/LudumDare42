@@ -35,6 +35,35 @@ public class InteractionManager : MonoBehaviour {
     {
         Debug.Log("Implemented button clicked");
 
+        if(itemSlot.CompareTag("MarketplaceItemSlot"))
+        {
+            GameObject marketItem = itemSlot.heldItem;
+            GameObject[] storageItemsSlots = GameObject.FindGameObjectsWithTag("PlayerItemSlot");
+
+            for (int i = 0; i < storageItemsSlots.Length; i++)
+            {
+                Debug.Log(storageItemsSlots[i].GetComponent<ItemSlot>().heldItem);
+
+                if(storageItemsSlots[i].GetComponent<ItemSlot>().heldItem == marketItem)
+                {
+                    Debug.Log("Found match with: " + storageItemsSlots[i].GetComponent<ItemSlot>().heldItem);
+
+                    storageItemsSlots[i].GetComponent<ItemSlot>().DropItem();
+                    playerMoney.AddPlayerMoney(marketItem.GetComponent<Item>().GetPrice());
+
+                    itemSlot.gameObject.SetActive(false);
+
+                    return;
+                }
+                else
+                {
+                    Debug.Log("No match found for " + marketItem + "your item was: " + storageItemsSlots[i].GetComponent<ItemSlot>().heldItem);
+                }
+            }
+
+            return;
+        }
+
         if(activeItemTransfer == false)
         {
             if (itemSlot.GetItem() != null)
@@ -68,7 +97,7 @@ public class InteractionManager : MonoBehaviour {
 
                     if (activeItemSlot.CompareTag("SellerItemSlot"))
                     {
-                        int cost = activeItemSlot.heldItem.GetComponent<Item>().GetValue();
+                        int cost = activeItemSlot.heldItem.GetComponent<Item>().GetPrice();
                         //Check if affordable
                         if (playerMoney.GetMoney() >= cost)
                         {

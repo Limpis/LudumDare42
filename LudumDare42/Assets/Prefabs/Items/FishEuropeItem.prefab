@@ -28,7 +28,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &114549887995077034
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -41,8 +41,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 50
-  foodItem: 1
+  price: 40
+  isFoodItem: 0
   itemName: Fish
+  itemCombinations: []
+  craftingResult: []
 --- !u!114 &114571655665125880
 MonoBehaviour:
   m_ObjectHideFlags: 1

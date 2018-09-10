@@ -17,21 +17,22 @@ public class Marketplace : MonoBehaviour {
 
     public void RandomizeItems()
     {
+        List<GameObject> tempItems = new List<GameObject>(possibleItems);
 
-        for (int i = 0; i < possibleItems.Count; i++)
+        for (int i = 0; i < tempItems.Count; i++)
         {
-            possibleItems[i].GetComponent<Item>().SetPrice(marketPriceFactor);
+            tempItems[i].GetComponent<Item>().SetPrice(marketPriceFactor);
 
         }
 
         for (int i = 0; i < marketItemButtons.Count; i++)
         {
-            int r = Random.Range(0, possibleItems.Count);
+            int r = Random.Range(0, tempItems.Count);
 
             ItemSlot itemSlot;
             itemSlot = marketItemButtons[i].GetComponent<ItemSlot>();
-            itemSlot.PlaceItem(possibleItems[r]);
-            possibleItems.RemoveAt(r);
+            itemSlot.PlaceItem(tempItems[r]);
+            tempItems.RemoveAt(r);
         }
     }
 
@@ -60,5 +61,10 @@ public class Marketplace : MonoBehaviour {
         playerInventoryPanel.gameObject.SetActive(false);
         gameObject.SetActive(false);
         worldMapPanel.gameObject.SetActive(true);
+
+        for (int i = 0; i < marketItemButtons.Count; i++)
+        {
+            marketItemButtons[i].gameObject.SetActive(true);
+        }
     }
 }
